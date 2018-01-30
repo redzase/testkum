@@ -11,11 +11,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 import os
+from distutils.command.config import config
+
+import dj_database_url
 import environ
 import raven
 from kombu import Exchange, Queue
 
-ROOT_DIR = environ.Path(__file__) - 3  # (octopus_project/config/settings/base.py - 3 = src/)
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 APPS_DIR = ROOT_DIR.path('src')
 
 # Load operating system environment variables and then prepare to use them
@@ -78,17 +81,13 @@ DEBUG = False
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
+ECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd55knepaod2pm8',
-        'USER': 'osyvudnsdfbegn',
-        'PASSWORD': '3d1d7d74d18f0e3eb2aa766c13a51de5b70d969af5c2053d086e8a6d5412353f',
-        'HOST': 'ec2-54-204-43-7.compute-1.amazonaws.com',
-        'PORT': '5432'
-    },
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
-
 # GENERAL CONFIGURATION
 # ------------------------------------------------------------------------------
 # Local time zone for this installation. Choices can be found here:
@@ -149,6 +148,18 @@ TEMPLATES = [
 ]
 
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_URL = '/static/'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)
+
 # STATIC FILE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
@@ -167,6 +178,8 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # MEDIA CONFIGURATION
 # ------------------------------------------------------------------------------

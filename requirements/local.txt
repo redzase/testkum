@@ -1,6 +1,0 @@
-# Importing from base.txt
--r base.txt
-
-# Debug information in a toolbar
-# http://django-debug-toolbar.readthedocs.org/
-django-debug-toolbar==1.8
