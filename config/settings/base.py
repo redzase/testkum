@@ -15,7 +15,7 @@ import environ
 import raven
 from kombu import Exchange, Queue
 
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = environ.Path(__file__) - 3  # (octopus_project/config/settings/base.py - 3 = src/)
 APPS_DIR = ROOT_DIR.path('src')
 
 # Load operating system environment variables and then prepare to use them
@@ -148,18 +148,6 @@ TEMPLATES = [
     },
 ]
 
-
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
 
 # STATIC FILE CONFIGURATION
 # ------------------------------------------------------------------------------

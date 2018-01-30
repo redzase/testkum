@@ -1,1 +1,2 @@
-web: run-program waitress-serve --port=$PORT settings.wsgi:application
+release: python manage.py migrate
+web: python manage.py runserver
