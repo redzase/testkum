@@ -1,1 +1,1 @@
-web: python manage.py runserver test-kum.herokuapp.com:80
+python manage.py runserver test-kum.herokuapp.com:80
