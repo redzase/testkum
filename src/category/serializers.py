@@ -57,7 +57,7 @@ class CategorySerializers(serializers.Serializer):
             Tag.objects.create(**data)
 
     def delete_tag(self, instance):
-        Tag.objects.filter(news_id=instance.id).delete()
+        Tag.objects.filter(category_id=instance.id).delete()
 
 
 class CategoryListSerializers(serializers.Serializer):
