@@ -36,4 +36,4 @@ DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TEMPLATE_CONTEXT': True,
 }
 
-ALLOWED_HOSTS = ['localhost', 'test-kum.herokuapp.com', '182.16.162.50']
+ALLOWED_HOSTS = ['localhost', 'https://test-kum.herokuapp.com']
