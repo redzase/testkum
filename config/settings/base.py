@@ -57,8 +57,7 @@ LOCAL_APPS = [
     # custom users app
     
     # Your stuff: custom apps go here
-    # 'src.helper',
-    # 'src.master',
+    'src.category',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

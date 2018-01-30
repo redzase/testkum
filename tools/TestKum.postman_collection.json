@@ -1,0 +1,180 @@
+{
+	"info": {
+		"name": "TestKum",
+		"_postman_id": "283bfe7d-fa14-1859-82d3-fe839d46e07f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get List Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{URL}}/category/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"category",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add Category",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"News\",\n\t\"status\": \"draft\",\n\t\"tag\": [\n\t\t\"pilkada\",\n\t\t\"pemilu\",\n\t\t\"politik\"\n\t]\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/category/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"category",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Category",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"New\",\n\t\"status\": \"publish\",\n\t\"tag\": [\n\t\t\"pilkada\"\n\t]\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/category/1/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"category",
+						"1",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Category",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"News\",\n\t\"status\": \"deleted\",\n\t\"tag\": [\n\t\t\"pilkada\",\n\t\t\"politik\"\n\t]\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/category/1/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"category",
+						"1",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get List Category Filter By Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{URL}}/category/?filter_by=status&search=publish",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"category",
+						""
+					],
+					"query": [
+						{
+							"key": "filter_by",
+							"value": "status",
+							"equals": true
+						},
+						{
+							"key": "search",
+							"value": "publish",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get List Category Filter By Tag",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{URL}}/category/?filter_by=tag&search=ancol",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"category",
+						""
+					],
+					"query": [
+						{
+							"key": "filter_by",
+							"value": "tag",
+							"equals": true
+						},
+						{
+							"key": "search",
+							"value": "ancol",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
