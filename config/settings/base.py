@@ -11,9 +11,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 import os
-from distutils.command.config import config
-
-import dj_database_url
 import environ
 import raven
 from kombu import Exchange, Queue
@@ -81,13 +78,17 @@ DEBUG = False
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-ECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd55knepaod2pm8',
+        'USER': 'osyvudnsdfbegn',
+        'PASSWORD': '3d1d7d74d18f0e3eb2aa766c13a51de5b70d969af5c2053d086e8a6d5412353f',
+        'HOST': 'ec2-54-204-43-7.compute-1.amazonaws.com',
+        'PORT': '5432'
+    },
 }
+
 # GENERAL CONFIGURATION
 # ------------------------------------------------------------------------------
 # Local time zone for this installation. Choices can be found here:
@@ -178,8 +179,6 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # MEDIA CONFIGURATION
 # ------------------------------------------------------------------------------
