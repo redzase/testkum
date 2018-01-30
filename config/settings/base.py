@@ -81,10 +81,10 @@ DEBUG = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'testkum',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
+        'NAME': 'd55knepaod2pm8',
+        'USER': 'osyvudnsdfbegn',
+        'PASSWORD': '3d1d7d74d18f0e3eb2aa766c13a51de5b70d969af5c2053d086e8a6d5412353f',
+        'HOST': 'ec2-54-204-43-7.compute-1.amazonaws.com',
         'PORT': '5432'
     },
 }
