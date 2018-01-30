@@ -51,7 +51,7 @@ class CategorySerializers(serializers.Serializer):
         for i in data:
             data = {
                 'name': i,
-                'news_id': category.id
+                'category_id': category.id
             }
 
             Tag.objects.create(**data)
