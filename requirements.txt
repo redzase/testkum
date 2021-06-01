@@ -43,7 +43,7 @@ sqlparse==0.2.4
 tenacity==4.8.0
 tornado==4.5.2
 typing==3.6.2
-urllib3==1.22
+urllib3==1.26.5
 vine==1.1.4
 whitenoise==3.3.1
 yarl==0.17.0
